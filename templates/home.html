@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+  <meta charset="UTF-8">
+  <title> My Hub </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap time -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="/static/main.css" rel="stylesheet">
+  <link href=" https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Source+Code+Pro" rel="stylesheet">
+
+</head>
+
+<body>
+  <header class="d-flex justify-content-center my-4">
+    <h1><code>Hello, World!</code></h1>
+  </header>
+  <main class="container">
+    <div id="xkcd" class="d-flex mb-4 justify-content-center">
+      <a href="{{resources.xkcd['link']}}" target="_blank">{{resources.xkcd["description"] | safe}}</a>
+    </div>
+
+    <h2>arXiv</h2>
+    <hr>
+    <div id="arxiv" class="row mb-4 bg-light">
+      {% for article in resources.arxiv_articles %}
+      <div class="col-12 col-md-6 col-lg-4 article">
+        <strong>{{article.title}}</strong>
+        {#
+          <br>
+          {{article.author | safe}}
+        #}
+        <br>
+        <a href="{{article.link}}" style="color: black;">📄 {{article.id}}</a>
+        <div class="mt-2 article-body">
+          {{article.description | safe }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <!-- MathJax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+
+  <!-- Bootstrap JS -->
+  <!-- TODO: trim JS if not needed -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+
+  <!-- Local scripts -->
+  {% block scripts %}
+  {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+body {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+.MathJax {
+    font-size: 1.1em !important;
+}
+
+.article {
+    font-family: "Source Code Pro", Roboto, Courier, monospace;
+    font-size: 12px;
+    margin-bottom: 2em;
+}
+
+.article-body {
+    display: -webkit-box;
+    -webkit-line-clamp: 35;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
