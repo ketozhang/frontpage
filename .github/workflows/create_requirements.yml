@@ -1,14 +1,13 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Build web
+name: Create requirements.txt
 
 on:
   workflow_dispatch:
   push:
-    branches: master
-  schedule:
-    - cron: 0 * * * *
+    paths:
+      - pyproject.yaml
 
 
 jobs:
@@ -23,17 +22,14 @@ jobs:
       with:
         python-version: 3.8
 
-#     - name: Install Poetry
-#       uses: abatilo/actions-poetry@v2.0.0
-#       with:
-#         poetry-version: 1.1.2
+    - name: Install Poetry
+      uses: abatilo/actions-poetry@v2.0.0
+      with:
+        poetry-version: 1.1.2
 
-    - name: Install dependencies
+    - name: Create requirements.txt
       run: |
-        pip install -r requirements.txt
-
-    - name: Build website
-      run: python app.py
+        poetry export -f requirements.txt --output requirements.txt
 
     - name: Push
       run: |
