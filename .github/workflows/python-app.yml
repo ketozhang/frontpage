@@ -23,17 +23,17 @@ jobs:
       with:
         python-version: 3.8
 
-    - name: Install Poetry
-      uses: abatilo/actions-poetry@v2.0.0
-      with:
-        poetry-version: 1.1.2
+#     - name: Install Poetry
+#       uses: abatilo/actions-poetry@v2.0.0
+#       with:
+#         poetry-version: 1.1.2
 
     - name: Install dependencies
       run: |
-        poetry install
+        pip install -r requirements.txt
 
     - name: Build website
-      run: poetry run python app.py
+      run: python app.py
 
     - name: Push
       run: |
