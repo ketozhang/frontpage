@@ -29,10 +29,9 @@
       {% for article in resources.arxiv_articles %}
       <div class="col-12 col-md-6 col-lg-4 article">
         <strong>{{article.title}}</strong>
-        {#
-          <br>
-          {{article.author | safe}}
-        #}
+        <br>
+        {% set authors = article.author.split(",") %}
+        {{(authors[:3] | join(", ") + ", ...," + authors[-1] if ((authors|length) > 3) else authors | join(", ")) | safe}}
         <br>
         <a href="{{article.link}}" style="color: black;">📄 {{article.id}}</a>
         <div class="mt-2 article-body">
