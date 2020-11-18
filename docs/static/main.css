@@ -20,6 +20,6 @@ body {
     text-overflow: ellipsis;
 }
 
-.xkcd img {
+#xkcd img {
     overflow-x: scroll;
 }
