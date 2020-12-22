@@ -1,3 +1,9 @@
+@media (min-width: 1200px) {
+    .container {
+        max-width: 75vw;
+    }
+}
+
 body {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
@@ -8,7 +14,7 @@ body {
 
 .article {
     font-family: "Roboto Mono", Courier, monospace;
-    font-size: 12px;
+    font-size: 14px;
     margin-bottom: 2em;
 }
 
