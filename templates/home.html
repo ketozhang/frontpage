@@ -19,7 +19,8 @@
     <h1><code>Hello, World!</code></h1>
   </header>
   <main class="container">
-    <div id="xkcd" class="d-flex mb-4 justify-content-center">
+    <div id="xkcd" class="d-flex flex-column align-items-center mb-4">
+      <h4> {{resources.xkcd['title']}} </h4>
       <a href="{{resources.xkcd['link']}}" target="_blank">{{resources.xkcd["description"] | safe}}</a>
     </div>
 
